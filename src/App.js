@@ -1,8 +1,10 @@
 import logo from "./logo.svg";
 import "./App.css";
 import YoutubeList from "./components/youtube/YoutubeList";
-import Toggle from "./components/state/Toggle";
-import Again from "./components/state/Again";
+import Toggle from "./components/toggle/Toggle";
+import Again from "./components/toggle/Again";
+import Counter from "./components/counter/Counter";
+import Game from "./components/tictactoe/Game";
 
 // function Feature() {
 //   return (
@@ -23,8 +25,10 @@ function App() {
   return (
     <div>
       {/* <YoutubeList></YoutubeList> */}
-      <Toggle></Toggle>
+      {/* <Toggle></Toggle> */}
+      {/* <Counter></Counter> */}
       {/* <Again></Again> */}
+      <Game></Game>
     </div>
   );
 }
