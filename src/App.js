@@ -5,6 +5,7 @@ import Toggle from "./components/toggle/Toggle";
 import Again from "./components/toggle/Again";
 import Counter from "./components/counter/Counter";
 import Game from "./components/tictactoe/Game";
+import Button from "./components/button/Button";
 
 // function Feature() {
 //   return (
@@ -28,7 +29,9 @@ function App() {
       {/* <Toggle></Toggle> */}
       {/* <Counter></Counter> */}
       {/* <Again></Again> */}
-      <Game></Game>
+      {/* <Game></Game> */}
+      <Button>Primary</Button>
+      <Button secondary>Secondary</Button>
     </div>
   );
 }
