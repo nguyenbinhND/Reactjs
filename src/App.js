@@ -1,11 +1,19 @@
 import logo from "./logo.svg";
 import "./App.css";
+// import "./index.css";
 import YoutubeList from "./components/youtube/YoutubeList";
 import Toggle from "./components/toggle/Toggle";
 import Again from "./components/toggle/Again";
 import Counter from "./components/counter/Counter";
 import Game from "./components/tictactoe/Game";
 import Button from "./components/button/Button";
+import Card from "./components/card/Card";
+import CardList from "./components/card/CardList";
+import { GlobalStyle } from "./Global";
+import Card2 from "./components/card/Card2";
+import { ThemeProvider } from "styled-components";
+import CartTailwind from "./components/card/CartTailwind";
+import Photos from "./components/photo/Photos";
 
 // function Feature() {
 //   return (
@@ -22,16 +30,43 @@ import Button from "./components/button/Button";
 //   );
 // }
 
+const theme = {
+  colors: {
+    blue: "#2979ff",
+  },
+};
 function App() {
   return (
-    <div>
-      {/* <YoutubeList></YoutubeList> */}
-      {/* <Toggle></Toggle> */}
-      {/* <Counter></Counter> */}
-      {/* <Again></Again> */}
-      {/* <Game></Game> */}
-      <Button>Primary</Button>
-      <Button secondary>Secondary</Button>
+    // <ThemeProvider theme={theme}>
+    //   <GlobalStyle></GlobalStyle>
+    //   {/* <YoutubeList></YoutubeList> */}
+    //   {/* <Toggle></Toggle> */}
+    //   {/* <Counter></Counter> */}
+    //   {/* <Again></Again> */}
+    //   {/* <Game></Game> */}
+    //   {/* <Button>Primary</Button> */}
+    //   {/* <Button secondary>Secondary</Button> */}
+    //   <CardList>
+    //     <Card2></Card2>
+    //     {/* <Card secondary={true}></Card>
+    //     <Card></Card>
+    //     <Card></Card>
+    //     <Card></Card>
+    //     <Card></Card>
+    //     <Card></Card> */}
+    //   </CardList>
+    //   <div className="text-center text-lg text-[#ffa400]">Hello</div>
+    // </ThemeProvider>
+
+    // <div className="">
+    //   <GlobalStyle></GlobalStyle>
+    //   <CardList>
+    //     <CartTailwind primary={true}></CartTailwind>
+    //   </CardList>
+    // </div>
+    <div className="">
+      {/* <Photos></Photos> */}
+      <Counter></Counter>
     </div>
   );
 }
