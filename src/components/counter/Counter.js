@@ -15,9 +15,20 @@ const Counter = () => {
 
   useEffect(() => {
     console.log("from input");
-  }, [info]);
+  }, [info.lastName]);
   return (
     <div className="p-5 flex gap-4 items-center">
+      <input
+        type="text"
+        name="firstName"
+        value={info.firstName}
+        onChange={(e) => {
+          setInfo({
+            ...info,
+            firstName: e.target.value,
+          });
+        }}
+      />
       <span className="text-2xl font-bold">{count}</span>
       <button
         onClick={() => setCount(count + 1)}

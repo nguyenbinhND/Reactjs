@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
-// import "./index.css";
+import "./index.css";
 import YoutubeList from "./components/youtube/YoutubeList";
 import Toggle from "./components/toggle/Toggle";
 import Again from "./components/toggle/Again";
@@ -14,6 +14,9 @@ import Card2 from "./components/card/Card2";
 import { ThemeProvider } from "styled-components";
 import CartTailwind from "./components/card/CartTailwind";
 import Photos from "./components/photo/Photos";
+import Timer from "./components/Timer";
+import Header from "./components/Header";
+import HackerNews from "./components/news/HackerNews";
 
 // function Feature() {
 //   return (
@@ -66,7 +69,10 @@ function App() {
     // </div>
     <div className="">
       {/* <Photos></Photos> */}
-      <Counter></Counter>
+      {/* <Counter></Counter> */}
+      {/* <Timer></Timer> */}
+      {/* <Header></Header> */}
+      <HackerNews></HackerNews>
     </div>
   );
 }
