@@ -18,6 +18,7 @@ import Timer from "./components/Timer";
 import Header from "./components/Header";
 import HackerNews from "./components/news/HackerNews";
 import HackerNewsFetching from "./components/news/HackerNewsFetching";
+import HackerNewsReduce from "./components/news/HackerNewsWithReduce";
 
 // function Feature() {
 //   return (
@@ -74,7 +75,8 @@ function App() {
       {/* <Timer></Timer> */}
       {/* <Header></Header> */}
       {/* <HackerNews></HackerNews> */}
-      <HackerNewsFetching></HackerNewsFetching>
+      {/* <HackerNewsFetching></HackerNewsFetching> */}
+      <HackerNewsReduce></HackerNewsReduce>
     </div>
   );
 }
