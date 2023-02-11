@@ -17,6 +17,7 @@ import Photos from "./components/photo/Photos";
 import Timer from "./components/Timer";
 import Header from "./components/Header";
 import HackerNews from "./components/news/HackerNews";
+import HackerNewsFetching from "./components/news/HackerNewsFetching";
 
 // function Feature() {
 //   return (
@@ -72,7 +73,8 @@ function App() {
       {/* <Counter></Counter> */}
       {/* <Timer></Timer> */}
       {/* <Header></Header> */}
-      <HackerNews></HackerNews>
+      {/* <HackerNews></HackerNews> */}
+      <HackerNewsFetching></HackerNewsFetching>
     </div>
   );
 }
