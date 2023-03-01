@@ -19,6 +19,17 @@ import Header from "./components/Header";
 import HackerNews from "./components/news/HackerNews";
 import HackerNewsFetching from "./components/news/HackerNewsFetching";
 import HackerNewsReduce from "./components/news/HackerNewsWithReduce";
+import StopWatch from "./components/StopWatch";
+import Input from "./components/Input";
+import TextareaAutoResize from "./components/TextareaAutoResize";
+import Test from "./components/Test";
+import Dropdown from "./components/Dropdown";
+import Blog from "./components/Blog";
+import { useState } from "react";
+import SideBarMenu from "./components/SideBarMenu";
+import useClickOutSide from "./components/hooks/useClickOutSide";
+import InputForm from "./components/form/InputForm";
+// import HackerNewsWithHook from "./components/news/HackerNewsWithHook";
 
 // function Feature() {
 //   return (
@@ -40,53 +51,26 @@ const theme = {
     blue: "#2979ff",
   },
 };
-function App() {
-  return (
-    // <ThemeProvider theme={theme}>
-    //   <GlobalStyle></GlobalStyle>
-    //   {/* <YoutubeList></YoutubeList> */}
-    //   {/* <Toggle></Toggle> */}
-    //   {/* <Counter></Counter> */}
-    //   {/* <Again></Again> */}
-    //   {/* <Game></Game> */}
-    //   {/* <Button>Primary</Button> */}
-    //   {/* <Button secondary>Secondary</Button> */}
-    //   <CardList>
-    //     <Card2></Card2>
-    //     {/* <Card secondary={true}></Card>
-    //     <Card></Card>
-    //     <Card></Card>
-    //     <Card></Card>
-    //     <Card></Card>
-    //     <Card></Card> */}
-    //   </CardList>
-    //   <div className="text-center text-lg text-[#ffa400]">Hello</div>
-    // </ThemeProvider>
 
-    // <div className="">
-    //   <GlobalStyle></GlobalStyle>
-    //   <CardList>
-    //     <CartTailwind primary={true}></CartTailwind>
-    //   </CardList>
-    // </div>
+function App() {
+  // const [show, setShow] = useState(false);
+  const { show, setShow, nodeRef } = useClickOutSide("button");
+  return (
     <div className="">
-      {/* <Photos></Photos> */}
-      {/* <Counter></Counter> */}
-      {/* <Timer></Timer> */}
-      {/* <Header></Header> */}
-      {/* <HackerNews></HackerNews> */}
-      {/* <HackerNewsFetching></HackerNewsFetching> */}
-      <HackerNewsReduce></HackerNewsReduce>
+      {/* <div className="p-5">
+        <button
+          onClick={() => {
+            setShow(!show);
+          }}
+          className="inlene-block m-3 p-3 rounded-lg text-white bg-green-400"
+        >
+          Show menu
+        </button>
+        <SideBarMenu show={show} ref={nodeRef}></SideBarMenu>
+      </div> */}
+      <InputForm></InputForm>
     </div>
   );
 }
-
-// Props->Properties
-
-// function YoutubeItem(props) {
-//   return (
-
-//   );
-// }
 
 export default App;
