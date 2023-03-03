@@ -1,60 +1,81 @@
 import React, { useState } from "react";
+import useHandelChange from "../hooks/useHandelChange";
 
 const InputForm = () => {
-  const [fullname, setFullName] = useState("");
+  // const [fullname, setFullName] = useState("");
   // const [message, setMessage] = useState("");
   // const [country, setCountry] = useState("");
-  const [values, setValue] = useState({
+  // const [values, setValue] = useState({
+  //   fullname: "",
+  //   email: "",
+  //   hobby: false,
+  // });
+
+  // const handelInputChange = (event) => {
+  //   const type = event.target.type;
+  //   setValue({
+  //     ...values,
+  //     [event.target.name]:
+  //       type === "checkbox" ? event.target.checked : event.target.value,
+  //   });
+
+  // if (type === "checkbox") {
+  //   setValue({
+  //     ...values,
+  //     [event.target.name]: event.target.checked,
+  //   });
+  // } else {
+  //   setValue({
+  //     ...values,
+  //     [event.target.name]: event.target.value,
+  //   });
+  // }
+  // };
+
+  const { values, handelChange } = useHandelChange({
     fullname: "",
     email: "",
     hobby: false,
   });
-
-  const handelInputChange = (event) => {
-    const type = event.target.type;
-    setValue({
-      ...values,
-      [event.target.name]:
-        type === "checkbox" ? event.target.checked : event.target.value,
-    });
-    // if (type === "checkbox") {
-    //   setValue({
-    //     ...values,
-    //     [event.target.name]: event.target.checked,
-    //   });
-    // } else {
-    //   setValue({
-    //     ...values,
-    //     [event.target.name]: event.target.value,
-    //   });
-    // }
+  const [nameError, setNameError] = useState("");
+  const handleSubmitForm = (e) => {
+    e.preventDefault();
+    if (values.fullname === "") {
+      setNameError("your full name is empty");
+    } else {
+      setNameError("");
+    }
   };
-
   return (
     <div className="p-5 ">
-      <div className="flex gap-x-3">
-        <input
-          type="text"
-          name="fullname"
-          className="w-full max-w-[300px] p-3 border border-gray-200 rounded-lg"
-          placeholder="Please Enter Your Name"
-          onChange={handelInputChange}
-        />
+      <form
+        className="flex gap-x-3"
+        autoComplete="off"
+        onSubmit={handleSubmitForm}
+      >
+        <div className="flex flex-col gap-y-3">
+          <input
+            type="text"
+            name="fullname"
+            className="w-full max-w-[300px] p-3 border border-gray-200 rounded-lg"
+            placeholder="Please Enter Your Name"
+            onChange={handelChange}
+          />
+          {nameError}
+        </div>
 
         <input
           type="email"
           name="email"
           className="w-full max-w-[300px] p-3 border border-gray-200 rounded-lg"
           placeholder="Please Enter Your Email"
-          onChange={handelInputChange}
+          onChange={handelChange}
         />
-        <input
-          type="checkbox"
-          name="hobby"
-          id=""
-          onChange={handelInputChange}
-        />
-      </div>
+        {/* <input type="checkbox" name="hobby" id="" onChange={handelChange} /> */}
+        <button type="submit" className="p-3 rounded-lg text-white bg-blue-500">
+          Submit
+        </button>
+      </form>
 
       {/* {message}
       <textarea

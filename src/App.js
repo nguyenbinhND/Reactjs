@@ -29,6 +29,7 @@ import { useState } from "react";
 import SideBarMenu from "./components/SideBarMenu";
 import useClickOutSide from "./components/hooks/useClickOutSide";
 import InputForm from "./components/form/InputForm";
+import MovieSearchApp from "./components/MovieSearchApp";
 // import HackerNewsWithHook from "./components/news/HackerNewsWithHook";
 
 // function Feature() {
@@ -68,7 +69,8 @@ function App() {
         </button>
         <SideBarMenu show={show} ref={nodeRef}></SideBarMenu>
       </div> */}
-      <InputForm></InputForm>
+      {/* <InputForm></InputForm> */}
+      <MovieSearchApp></MovieSearchApp>
     </div>
   );
 }
