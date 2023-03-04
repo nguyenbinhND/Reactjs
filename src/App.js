@@ -32,6 +32,8 @@ import InputForm from "./components/form/InputForm";
 import MovieSearchApp from "./components/MovieSearchApp";
 import SignUpForm from "./components/form/SignUpForm";
 import SignUpFormV2 from "./components/form/SignUpFormV2";
+import SignUpFormFinal from "./components/form/SignUpFormFinal";
+import SignUpFormFinalComponent from "./components/form/SignUpFormFinalComponent";
 // import HackerNewsWithHook from "./components/news/HackerNewsWithHook";
 
 // function Feature() {
@@ -73,7 +75,8 @@ function App() {
       </div> */}
       {/* <InputForm></InputForm> */}
       {/* <MovieSearchApp></MovieSearchApp> */}
-      <SignUpFormV2></SignUpFormV2>
+      {/* <SignUpFormFinal></SignUpFormFinal> */}
+      <SignUpFormFinalComponent></SignUpFormFinalComponent>
     </div>
   );
 }
