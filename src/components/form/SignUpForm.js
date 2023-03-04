@@ -1,36 +1,36 @@
 import React from "react";
 import { useFormik } from "formik";
+import * as Yup from "yup";
 
-const validate = (values) => {
-  const errors = {};
+// const validate = (values) => {
+//   const errors = {};
+//   // Cach 1
+//   //   if (!values.firstName && !values.lastName) {
+//   //     errors.firstName = "required";
+//   //     errors.lastName = "required";
+//   //   } else if (values.firstName.length > 20 && values.lastName.length > 20) {
+//   //     errors.firstName = "must be 20 characters or less";
+//   //     errors.lastName = "must be 20 characters or less";
+//   //   } else if (values.firstName.length > 20) {
+//   //     errors.firstName = "must be 20 characters or less";
+//   //   } else if (values.lastName.length > 20) {
+//   //     errors.lastName = "must be 20 characters or less";
+//   //   }
 
-  // Cach 1
-  //   if (!values.firstName && !values.lastName) {
-  //     errors.firstName = "required";
-  //     errors.lastName = "required";
-  //   } else if (values.firstName.length > 20 && values.lastName.length > 20) {
-  //     errors.firstName = "must be 20 characters or less";
-  //     errors.lastName = "must be 20 characters or less";
-  //   } else if (values.firstName.length > 20) {
-  //     errors.firstName = "must be 20 characters or less";
-  //   } else if (values.lastName.length > 20) {
-  //     errors.lastName = "must be 20 characters or less";
-  //   }
+//   //Cach 2
+//   if (!values.firstName) {
+//     errors.firstName = "required";
+//   } else if (values.firstName.length > 20) {
+//     errors.firstName = "must be 20 characters or less";
+//   }
 
-  //Cach 2
-  if (!values.firstName) {
-    errors.firstName = "required";
-  } else if (values.firstName.length > 20) {
-    errors.firstName = "must be 20 characters or less";
-  }
-
-  if (!values.firstName) {
-    errors.lastName = "required";
-  } else if (values.lastName.length > 20) {
-    errors.lastName = "must be 20 characters or less";
-  }
-  return errors;
-};
+//   if (!values.firstName) {
+//     errors.lastName = "required";
+//   } else if (values.lastName.length > 20) {
+//     errors.lastName = "must be 20 characters or less";
+//   }
+//   return errors;
+// };
 
 const SignUpForm = () => {
   const formik = useFormik({
@@ -38,7 +38,14 @@ const SignUpForm = () => {
       firstName: "",
       lastName: "",
     },
-    validate,
+    validationSchema: Yup.object({
+      firstName: Yup.string()
+        .max(10, "must be 20 characters or less")
+        .required("required"),
+      lastName: Yup.string()
+        .max(10, "must be 20 characters or less")
+        .required("required"),
+    }),
     onSubmit: (values) => {
       console.log(values);
     },
@@ -55,12 +62,13 @@ const SignUpForm = () => {
         <input
           type="text"
           id="firstName"
-          name="firstName"
           placeholder="Please enter your first name"
           className="p-4 rounded-md outline-none border border-gray-100"
-          value={formik.touched.firsName && formik.values.firstName}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
+          // name="firstName"
+          // value={formik.touched.firsName && formik.values.firstName}
+          // onChange={formik.handleChange}
+          // onBlur={formik.handleBlur}
+          {...formik.getFieldProps("firstName")}
         />
         {formik.errors.firstName ? (
           <div className="text-sm text-red-500">{formik.errors.firstName}</div>
@@ -72,12 +80,13 @@ const SignUpForm = () => {
         <input
           type="text"
           id="lastName"
-          name="lastName"
           placeholder="Please enter your first name"
           className="p-4 rounded-md outline-none border border-gray-100"
-          value={formik.values.lastName}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
+          // name="lastName"
+          // value={formik.values.lastName}
+          // onChange={formik.handleChange}
+          // onBlur={formik.handleBlur}
+          {...formik.getFieldProps("lastName")}
         />
         {formik.touched.lastName && formik.errors.lastName ? (
           <div className="text-sm text-red-500">{formik.errors.lastName}</div>
