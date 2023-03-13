@@ -25,7 +25,7 @@ import TextareaAutoResize from "./components/TextareaAutoResize";
 import Test from "./components/Test";
 import Dropdown from "./components/Dropdown";
 import Blog from "./components/Blog";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import SideBarMenu from "./components/SideBarMenu";
 import useClickOutSide from "./components/hooks/useClickOutSide";
 import InputForm from "./components/form/InputForm";
@@ -34,6 +34,11 @@ import SignUpForm from "./components/form/SignUpForm";
 import SignUpFormV2 from "./components/form/SignUpFormV2";
 import SignUpFormFinal from "./components/form/SignUpFormFinal";
 import SignUpFormFinalComponent from "./components/form/SignUpFormFinalComponent";
+import SignUpFormHook from "./components/form/SignUpFormHook";
+import Modal from "./components/modal/Modal";
+import DropdownPortal from "./components/DropdownPortal";
+import Tooltip from "./components/Tooltip";
+import { ErrorBoundary } from "react-error-boundary";
 // import HackerNewsWithHook from "./components/news/HackerNewsWithHook";
 
 // function Feature() {
@@ -50,6 +55,15 @@ import SignUpFormFinalComponent from "./components/form/SignUpFormFinalComponent
 //     </div>
 //   );
 // }
+function ErrorFallback({ error, resetErrorBoundary }) {
+  return (
+    <div role="alert">
+      <p>Something went wrong:</p>
+      <pre>{error.message}</pre>
+      <button onClick={resetErrorBoundary}>Try again</button>
+    </div>
+  );
+}
 
 const theme = {
   colors: {
@@ -58,26 +72,45 @@ const theme = {
 };
 
 function App() {
-  // const [show, setShow] = useState(false);
-  const { show, setShow, nodeRef } = useClickOutSide("button");
+  const [showModal, setShowModal] = useState(false);
+
   return (
-    <div className="">
-      {/* <div className="p-5">
-        <button
-          onClick={() => {
-            setShow(!show);
-          }}
-          className="inlene-block m-3 p-3 rounded-lg text-white bg-green-400"
-        >
-          Show menu
-        </button>
-        <SideBarMenu show={show} ref={nodeRef}></SideBarMenu>
-      </div> */}
-      {/* <InputForm></InputForm> */}
-      {/* <MovieSearchApp></MovieSearchApp> */}
-      {/* <SignUpFormFinal></SignUpFormFinal> */}
-      <SignUpFormFinalComponent></SignUpFormFinalComponent>
-    </div>
+    // <Fragment className="">
+    //   <div className="">
+    //     <Modal open={showModal} handelClose={() => setShowModal(false)}></Modal>
+    //   </div>
+    //   <button
+    //     className="w-[150px] m-5 p-4 text-base font-semibold text-white bg-blue-500 rounded-lg "
+    //     onClick={() => {
+    //       setShowModal(true);
+    //     }}
+    //   >
+    //     Show modal
+    //   </button>
+    //   <div className="relative z-30">
+    //     Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, rerum
+    //     placeat eligendi harum omnis dolor alias temporibus qui dolorem, ullam
+    //     autem fugiat mollitia aliquid natus ipsam! Magnam aliquid temporibus
+    //     explicabo.
+    //   </div>
+    //   <div className="p-5 overflow-hidden">
+    //     <DropdownPortal></DropdownPortal>
+    //   </div>
+
+    // </Fragment>
+    // <div className="p-16 mt-20 ml-16 overflow-hidden">
+    //   <Tooltip
+    //     children={"Lorem ipsum dolor sit amet"}
+    //     text={"Hover me"}
+    //   ></Tooltip>
+    // </div>
+
+    <ErrorBoundary FallbackComponent={ErrorFallback}>
+      <Tooltip
+        children={"Lorem ipsum dolor sit amet"}
+        text={"Hover me"}
+      ></Tooltip>
+    </ErrorBoundary>
   );
 }
 
